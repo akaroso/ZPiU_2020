@@ -1,0 +1,60 @@
+Schema::create('kontrahent', function (Blueprint $table) {
+            $table->id();
+            $table->string('nazwa_kontrahenta');
+            $table->timestamps();
+            
+
+	        $table->foreign('id')->references('id')->on('produkt_kontrahent')->onDelete('cascade');
+        });
+
+Schema::create('producent', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('nazwa_producenta');
+
+           
+        });
+
+Schema::create('kategoria', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('nazwa_kategoria');
+
+        
+        });
+
+Schema::create('kategoria_producent', function (Blueprint $table) {
+            $table->id();
+            $table->integer('id_kategoria')->unsigned()->nullable();
+            $table->integer('id_producent')->unsigned()->nullable();
+            $table->integer('id_produkt')->unsigned()->nullable();
+            $table->timestamps();
+
+            $table->foreign('id_producent')->references('id')->on('producent')->onDelete('cascade');
+            $table->foreign('id_kategoria')->references('id')->on('kategoria')->onDelete('cascade');
+            $table->foreign('id_produkt')->references('id')->on('produkt')->onDelete('cascade');
+            
+        });
+
+Schema::create('produkt', function (Blueprint $table) {
+            $table->id();
+            $table->string('nazwa_produktu');
+            $table->float('cena_netto');
+            $table->float('podatek');
+            $table->string('opis');
+            $table->boolean('czy_usluga');
+            $table->timestamps();
+            
+
+        });
+
+Schema::create('produkt_kontrahent', function (Blueprint $table) {
+            $table->id();
+            $table->nip()->unsigned()->nullable();
+            $table->id_produkt()->unsigned()->nullable();
+            $table->float('znizka');
+            $table->timestamps();
+
+            $table->foreign('nip')->references('id')->on('kontrahent')->onDelete('cascade');
+            $table->foreign('id_produkt')->references('id')->on('produkt')->onDelete('cascade');
+        });
