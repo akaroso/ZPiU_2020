@@ -24,6 +24,7 @@ class KontrahentFactory extends Factory
         $faker = \Faker\Factory::create();
         return [
             'nazwa_kontrahenta' => $faker->name,
+            'nip' => $faker->word,
             'znizka' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 0.75)
         ];
     }

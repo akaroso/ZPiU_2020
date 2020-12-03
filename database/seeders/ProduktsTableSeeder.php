@@ -20,7 +20,7 @@ class ProduktsTableSeeder extends Seeder
         
 
         
-        Produkt::factory()->count(200)->create()
+        Produkt::factory()->count(100000)->create()
         ->each(function ($u) {
             $u->kategorias()->attach(random_int($min=1,$max=25));
             $u->producents()->attach(random_int($min=1,$max=50));

@@ -15,6 +15,7 @@ class CreateKontrahentsTable extends Migration
     {
         Schema::create('kontrahents', function (Blueprint $table) {
             $table->id();
+            $table->string('nip');
             $table->string('nazwa_kontrahenta');
             $table->float('znizka');
             $table->timestamps();

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use App\Models\Kontrahent;
-
+Use App\Models\Produkt;
 class KontrahentController extends Controller
 {
     public function index()
@@ -15,6 +15,26 @@ class KontrahentController extends Controller
     public function show($id)
     {
         return Kontrahent::find($id);
+    }
+
+    public function show2($nip)
+    {
+     //   return response()->json('xd', 200);
+
+        $Kontrahent = Kontrahent::where('nip',$nip)->first();
+        $Kontrahent = $Kontrahent->load(['produkt_kontrahent']);
+        
+        $ProductsWithOtherPrice = [];
+        
+        foreach($Kontrahent['produkt_kontrahent'] as $product)
+        {
+            array_push($ProductsWithOtherPrice,$product['id']);
+        }
+        $products = Produkt::whereNotIn('id',$ProductsWithOtherPrice)->get();
+
+        return response()->json(['products' => ['normal' => $products,'discounted'=> $Kontrahent['produkt_kontrahent']]], 200);
+        
+
     }
 
     public function store(Request $request)

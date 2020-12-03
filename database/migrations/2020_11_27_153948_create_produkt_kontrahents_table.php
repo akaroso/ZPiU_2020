@@ -14,11 +14,12 @@ class CreateProduktKontrahentsTable extends Migration
     public function up()
     {
         Schema::create('produkt_kontrahents', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('nip')->unsigned()->nullable();
-            $table->foreign('nip')->references('id')->on('kontrahents')->onDelete('cascade');
+            
+            $table->unsignedBigInteger('produkt_kontrahent')->unsigned()->nullable();
+            $table->foreign('produkt_kontrahent')->references('id')->on('kontrahents')->onDelete('cascade');
             $table->unsignedBigInteger('id_produkt')->unsigned()->nullable();
             $table->foreign('id_produkt')->references('id')->on('produkts')->onDelete('cascade');
+            $table->float('cena');
             $table->timestamps();
 
             

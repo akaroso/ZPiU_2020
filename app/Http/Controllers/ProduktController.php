@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kontrahent;
 use Illuminate\Http\Request;
 Use App\Models\Produkt;
 
@@ -36,5 +37,17 @@ class ProduktController extends Controller
         $Produkt->delete();
 
         return 204;
+    }
+
+    public function saveforcustromer(Request $request, $id)
+    {
+        $custromer = Kontrahent::firstWhere('id',$id);
+        $produkt_id = $request -> get('produkt_id');
+        $produkt = Produkt::firstWhere('id');
+        $cena = $request->get('cena');
+        $custromer->produkt_kontrahent()->attach($produkt_id,['cena'=>$cena]);
+        $custromer -> save();
+        return response()->json(['updated' => $custromer->load(['produkt_kontrahent'])], 200);
+
     }
 }

@@ -13,5 +13,12 @@ class Kontrahent extends Model
     public function produkts()
     {
         return $this->belongsToMany('App\Models\Produkt');
+        
+    }
+
+    public function produkt_kontrahent()
+    {
+        return $this->belongsToMany('App\Models\Produkt','produkt_kontrahents','produkt_kontrahent','produkt_kontrahent')->withPivot('cena');
+        
     }
 }

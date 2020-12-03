@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProduktController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 Use App\Models\Article;
@@ -27,11 +28,15 @@ Route::get('produkts/{id}', 'App\Http\Controllers\ProduktController@show');
 Route::post('produkts', 'App\Http\Controllers\ProduktController@store');
 Route::put('produkts/{id}', 'App\Http\Controllers\ProduktController@update');
 Route::delete('produkts/{id}', 'App\Http\Controllers\ProduktController@delete');
+Route::post('produkts', 'App\Http\Controllers\ProduktController@store');
+Route::post('produkts/producent/{id}',[ProduktController::class, 'saveforcustromer']);
+
 
 //kontrahenci
 
 Route::get('kontrahents', 'App\Http\Controllers\KontrahentController@index');
 Route::get('kontrahents/{id}', 'App\Http\Controllers\KontrahentController@show');
+Route::get('kontrahents/nip/{nip}', 'App\Http\Controllers\KontrahentController@show2');
 Route::post('kontrahents', 'App\Http\Controllers\KontrahentController@store');
 Route::put('kontrahents/{id}', 'App\Http\Controllers\KontrahentController@update');
 Route::delete('kontrahents/{id}', 'App\Http\Controllers\KontrahentController@delete');
