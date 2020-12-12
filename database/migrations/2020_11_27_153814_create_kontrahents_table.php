@@ -17,8 +17,8 @@ class CreateKontrahentsTable extends Migration
             $table->id();
             $table->string('nip');
             $table->string('nazwa_kontrahenta');
-            $table->float('znizka');
-            $table->timestamps();
+          //  $table->float('znizka');
+          //  $table->timestamps();
         });
     }
 

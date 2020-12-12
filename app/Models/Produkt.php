@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Produkt extends Model
 {
 
+    public $timestamps = false;
+
     public function kategorias()
     {
         return $this->belongsToMany('App\Models\Kategoria');

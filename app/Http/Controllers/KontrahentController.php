@@ -32,7 +32,9 @@ class KontrahentController extends Controller
         }
         $products = Produkt::whereNotIn('id',$ProductsWithOtherPrice)->get();
 
-        return response()->json(['products' => ['normal' => $products,'discounted'=> $Kontrahent['produkt_kontrahent']]], 200);
+       response()->json(['products' => ['normal' => $products,'discounted'=> $Kontrahent['produkt_kontrahent']]], 200);
+          $result = array_merge(['products' => [ $products, $Kontrahent['produkt_kontrahent']]]);
+        return $result;
         
 
     }

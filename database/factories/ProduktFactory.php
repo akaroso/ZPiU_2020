@@ -26,7 +26,7 @@ class ProduktFactory extends Factory
         $faker = \Faker\Factory::create();
         return [
             'nazwa_produktu' => $faker->word(),
-            'cena_netto' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 100),
+            'cena_netto' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 1000),
             'podatek' => $faker->randomElement(['1', '1.05','1.08', '1.23']),
             'opis' => $faker->sentence,
             'czy_usluga' => $faker->boolean($chanceOfGettingTrue = 50),

@@ -20,7 +20,7 @@ class CreateProduktsTable extends Migration
             $table->float('podatek');
             $table->string('opis');
             $table->boolean('czy_usluga');
-            $table->timestamps();
+        //    $table->timestamps();
         });
     }
 

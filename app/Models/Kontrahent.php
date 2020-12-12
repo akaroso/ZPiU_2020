@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kontrahent extends Model
 {
+
+    public $timestamps = false;
+
     use HasFactory;
-    protected $fillable = ['nazwa_kontrahenta',];
+    protected $fillable = ['nazwa_kontrahenta','nip',];
 
     public function produkts()
     {

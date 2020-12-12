@@ -19,7 +19,7 @@ class ProducentsTableSeeder extends Seeder
 
         
 
-        Producent::factory()->count(50)->create();   
+        Producent::factory()->count(20)->create();   
        
 
     }

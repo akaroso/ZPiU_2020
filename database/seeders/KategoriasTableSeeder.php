@@ -20,7 +20,7 @@ class KategoriasTableSeeder extends Seeder
 
         
 
-        Kategoria::factory()->count(25)->create();
+        Kategoria::factory()->count(10)->create();
 
     }
 }

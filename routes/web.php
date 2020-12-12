@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('produkty', 'App\Http\Controllers\ProduktWebController');
+Route::resource('kategorie', 'App\Http\Controllers\KategoriaWebController');
+Route::resource('kontrahenci', 'App\Http\Controllers\KontrahentWebController');
+Route::resource('producenci', 'App\Http\Controllers\ProducentWebController');
+
+

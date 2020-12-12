@@ -18,7 +18,7 @@ class KontrahentsTableSeeder extends Seeder
 
         
 
-        Kontrahent::factory()->count(50)->create();
+        Kontrahent::factory()->count(20)->create();
 
     }
 }
