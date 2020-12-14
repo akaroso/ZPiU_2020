@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+Use App\Models\Kategoria;
 
 class KategoriaWebController extends Controller
 {
@@ -14,6 +15,8 @@ class KategoriaWebController extends Controller
     public function index()
     {
         //
+        $kategoria = Kategoria::all();
+        return view('kategorie.index', compact('kategoria'));
     }
 
     /**
@@ -24,6 +27,7 @@ class KategoriaWebController extends Controller
     public function create()
     {
         //
+        return view('kategorie.create');
     }
 
     /**
@@ -34,6 +38,8 @@ class KategoriaWebController extends Controller
      */
     public function store(Request $request)
     {
+        $kategoria =  Kategoria::create($request->all());
+        return redirect('/kategorie')->with('success', 'Kategoria zapisany!');
         //
     }
 
@@ -46,6 +52,7 @@ class KategoriaWebController extends Controller
     public function show($id)
     {
         //
+        return Kategoria::find($id);
     }
 
     /**
@@ -55,7 +62,10 @@ class KategoriaWebController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
+
     {
+        $kategoria = Kategoria::find($id);
+        return view('kategorie.edit', compact('kategoria')); 
         //
     }
 
@@ -69,6 +79,15 @@ class KategoriaWebController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'nazwa_kategoria'=>'required',
+            
+        ]);
+       
+       $kategoria = Kategoria::find($id);   
+       $kategoria->update($request->all());
+
+        return redirect('/kategorie')->with('success', 'Kategoria zaktualizowany!');
     }
 
     /**
@@ -80,5 +99,9 @@ class KategoriaWebController extends Controller
     public function destroy($id)
     {
         //
+        $kategoria = Kategoria::find($id);
+        $kategoria->delete();
+
+        return redirect('/kategorie')->with('success', 'Kategoria usunięty!');
     }
 }

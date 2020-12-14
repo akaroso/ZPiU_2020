@@ -42,15 +42,12 @@ class ProduktController extends Controller
     public function saveforcustromer(Request $request, $id)
     {
         $custromer = Kontrahent::firstWhere('id',$id);
-        $id_produkt = $request -> get('id_produkt');
-        $produkt = Produkt::firstWhere('id',$id_produkt);
-        $cena = $request->get('cena');
-        $custromer->produkt_kontrahent()->attach($produkt,['cena'=>$cena]);
-        $custromer -> save();
-      //  $result = array_merge($custromer,$produkt_id);
-      //  return $result;
-
-        return response()->json(['updated' => $custromer->load(['produkt_kontrahent'])], 200);
+             $produkt_id = $request -> get('produkt_id');
+             $produkt = Produkt::firstWhere('id');
+             $cena = $request->get('cena');
+             $custromer->produkt_kontrahent()->attach($produkt_id,['cena'=>$cena]);
+             $custromer -> save();
+             return response()->json(['updated' => $custromer->load(['produkt_kontrahent'])], 200);
         
 
     }

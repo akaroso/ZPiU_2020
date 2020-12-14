@@ -15,8 +15,9 @@
   
 	<nav class="navbar navbar-expand-md navbar-light bg-lblue shadow-sm"">
   
-	<!-- Example single danger button -->
-<div class="btn-group">
+  <!-- Example single danger button -->
+  
+<div class="btn-group" style="margin-right: 10px">
   <button type="button" class="btn btn-primary  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Produkty
   </button>
@@ -28,40 +29,42 @@
     <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>
-/\
-<div class="btn-group">
+
+
+
+<div class="btn-group" style="margin-right: 10px">
   <button type="button" class="btn btn-primary  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Kontrahenci
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Wyświetl Kontrahentów</a>
-    <a class="dropdown-item" href="#">Importuj Kontrahentów</a>
-    <a class="dropdown-item" href="#">Ustaw cene dla Kontrahenta</a>
+    <a class="dropdown-item" href="{{ route('kontrahenci.index')}}">Wyświetl Kontrahentów</a>
+    <a class="dropdown-item" href="{{ route('kontrahenci.create')}}">Importuj Kontrahentów</a>
+    <a class="dropdown-item" href="{{ route('kontrahenci.cena')}}">Ustaw cene dla Kontrahenta</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>
-/\
-<div class="btn-group">
+
+<div class="btn-group" style="margin-right: 10px">
   <button type="button" class="btn btn-primary  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Kategorie
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Wyświetl kategorie</a>
-    <a class="dropdown-item" href="#">Dodaj kategorie</a>
+    <a class="dropdown-item" href="{{ route('kategorie.index')}}">Wyświetl kategorie</a>
+    <a class="dropdown-item" href="{{ route('kategorie.create')}}">Dodaj kategorie</a>
     <a class="dropdown-item" href="#">Something else here</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>
-/\
-<div class="btn-group">
+
+<div class="btn-group" style="margin-right: 10px">
   <button type="button" class="btn btn-primary  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Producenci
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Wyświetl producentów</a>
-    <a class="dropdown-item" href="#">Dodaj producenta</a>
+    <a class="dropdown-item" href="{{ route('producenci.index')}}">Wyświetl producentów</a>
+    <a class="dropdown-item" href="{{ route('producenci.create')}}">Dodaj producenta</a>
     <a class="dropdown-item" href="#">Something else here</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="#">Separated link</a>

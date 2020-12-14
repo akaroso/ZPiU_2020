@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+Use App\Models\Producent;
 
 class ProducentWebController extends Controller
 {
@@ -13,7 +14,9 @@ class ProducentWebController extends Controller
      */
     public function index()
     {
-        //
+        $producenci = Producent::all();
+
+        return view('producenci.index', compact('producenci'));
     }
 
     /**
@@ -23,7 +26,7 @@ class ProducentWebController extends Controller
      */
     public function create()
     {
-        //
+        return view('producenci.create');
     }
 
     /**
@@ -34,7 +37,8 @@ class ProducentWebController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producent =  Producent::create($request->all());
+        return redirect('/producenci')->with('success', 'Producent Zapisany!');
     }
 
     /**
@@ -45,7 +49,7 @@ class ProducentWebController extends Controller
      */
     public function show($id)
     {
-        //
+        return Producent::find($id);
     }
 
     /**
@@ -56,7 +60,9 @@ class ProducentWebController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producent = Producent::find($id);
+       
+        return view('producenci.edit', compact('producent')); 
     }
 
     /**
@@ -68,7 +74,14 @@ class ProducentWebController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nazwa_producenta'=>'required',
+        ]);
+        
+    $producent = Producent::find($id);   
+    $producent->update($request->all());
+ 
+    return redirect('/producenci')->with('success', 'Producent updated!');
     }
 
     /**
@@ -79,6 +92,9 @@ class ProducentWebController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $producent = Producent::find($id);
+        $producent->delete();
+
+        return redirect('/producenci')->with('success', 'Producent deleted!');
     }
 }

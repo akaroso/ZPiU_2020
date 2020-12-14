@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('base');
 });
 
 Route::resource('produkty', 'App\Http\Controllers\ProduktWebController');
 Route::resource('kategorie', 'App\Http\Controllers\KategoriaWebController');
+Route::get('kontrahenci/cena', 'App\Http\Controllers\KontrahentWebController@cena')->name('kontrahenci.cena');
+Route::post('kontrahenci/cena/post', 'App\Http\Controllers\KontrahentWebController@saveforcustromer')->name('kontrahenci.saveforcustromer');
 Route::resource('kontrahenci', 'App\Http\Controllers\KontrahentWebController');
 Route::resource('producenci', 'App\Http\Controllers\ProducentWebController');
+
 
 

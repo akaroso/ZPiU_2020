@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+Use App\Models\Kontrahent;
+Use App\Models\Produkt;
 
 class KontrahentWebController extends Controller
 {
@@ -13,7 +15,9 @@ class KontrahentWebController extends Controller
      */
     public function index()
     {
-        //
+        $kontrahenci = Kontrahent::all();
+
+        return view('kontrahenci.index', compact('kontrahenci'));
     }
 
     /**
@@ -23,7 +27,7 @@ class KontrahentWebController extends Controller
      */
     public function create()
     {
-        //
+        return view('kontrahenci.create');
     }
 
     /**
@@ -34,7 +38,8 @@ class KontrahentWebController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kontrahent =  Kontrahent::create($request->all());
+        return redirect('/kontrahenci')->with('success', 'Kontrahent zapisany!');
     }
 
     /**
@@ -45,7 +50,7 @@ class KontrahentWebController extends Controller
      */
     public function show($id)
     {
-        //
+        return Kontrahent::find($id);
     }
 
     /**
@@ -56,7 +61,8 @@ class KontrahentWebController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kontrahent = Kontrahent::find($id);
+        return view('kontrahenci.edit', compact('kontrahent')); 
     }
 
     /**
@@ -68,7 +74,39 @@ class KontrahentWebController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'nazwa_kontrahenta'=>'required',
+            'nip'=>'required'
+        ]);
+       
+       $kontrahent = Kontrahent::find($id);   
+       $kontrahent->update($request->all());
+
+        return redirect('/kontrahenci')->with('success', 'Kontrahent zaktualizowany!');
+    }
+
+    public function cena()
+    {
+        $produkty = Produkt::all();
+        $kontrahenci = Kontrahent::all();
+        return view('kontrahenci.cena',compact('produkty','kontrahenci'));
+    }
+
+    public function saveforcustromer(Request $request)
+    
+    {
+        $id = $request->get('id');
+        $custromer = Kontrahent::firstWhere('id',$id);
+             $produkt_id = $request -> get('produkt_id');
+
+             $produkt = Produkt::firstWhere('id');
+             $cena = $request->get('cena');
+             $custromer->produkt_kontrahent()->attach($produkt_id,['cena'=>$cena]);
+             $custromer -> save();
+             return redirect('/kontrahenci')->with('success', 'Cena została zaktualizowana!');
+        
+
     }
 
     /**
@@ -79,6 +117,9 @@ class KontrahentWebController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kontrahent = Kontrahent::find($id);
+        $kontrahent->delete();
+
+        return redirect('/kontrahenci')->with('success', 'Kontrahent usunięty!');
     }
 }

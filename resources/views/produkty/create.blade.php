@@ -17,7 +17,7 @@
       <form method="post" action="{{ route('produkty.store') }}">
           @csrf
           <div class="form-group">    
-              <label for="first_name">nazwa_produktu:</label>
+              <label for="first_name">Nazwa produktu:</label>
               <input type="text" class="form-control" name="nazwa_produktu"/>
           </div>
 
@@ -37,8 +37,32 @@
           <div class="form-group">
               <label for="country">czy_usluga:</label>
               <input type="text" class="form-control" name="czy_usluga"/>
-          </div>                                 
-          <button type="submit" class="btn btn-primary-outline">Add produkt</button>
+          </div>  
+          <div class="form-group">
+          <label for="country">Producent:</label>
+          <select class="form-control" name="producent">
+    <option>Select Item</option>
+    @foreach ($producenci as $key => $value)
+        <option value="{{ $value->id }}" > 
+            {{ $value->nazwa_producenta }} 
+        </option>
+    @endforeach    
+</select>
+          </div> 
+          
+          <div class="form-group">
+          <label for="country">Kategoria:</label>
+          <select class="form-control" name="kategoria">
+    <option>Select Item</option>
+    @foreach ($kategorie as $key => $value)
+        <option value="{{ $value->id }}" > 
+            {{ $value->nazwa_kategoria }} 
+        </option>
+    @endforeach    
+</select>
+          </div> 
+                                       
+          <button type="submit" class="btn btn-primary">Add produkt</button>
       </form>
   </div>
 </div>

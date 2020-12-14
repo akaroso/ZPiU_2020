@@ -21,6 +21,8 @@
           <td>Nazwa</td>
           <td>Cena</td>
           <td>Podatek</td>
+          <td>Kategoria</td>
+          <td>Producent</td>
           <td>Opis</td>
           <td>Usługa</td>
           <td colspan = 2>Akcje</td>
@@ -28,11 +30,22 @@
     </thead>
     <tbody>
         @foreach($produkty as $produkt)
+        
         <tr>
             <td>{{$produkt->id}}</td>
             <td>{{$produkt->nazwa_produktu}}</td>
             <td>{{$produkt->cena_netto}}</td>
             <td>{{$produkt->podatek}}</td>
+
+            @foreach($produkt->kategorias as $kategoria)
+            <td>{{$kategoria->nazwa_kategoria}}</td>
+            @endforeach
+
+            @foreach($produkt->producents as $producent)
+            <td>{{$producent->nazwa_producenta}}</td>
+            @endforeach
+
+
             <td>{{$produkt->opis}}</td>
             <td>
             @if ($produkt->czy_usluga) 
@@ -52,9 +65,12 @@
                 </form>
             </td>
         </tr>
+        
         @endforeach
     </tbody>
+    
   </table>
+  {{$produkty->links("pagination::bootstrap-4")}}
 <div>
 </div>
 @endsection
