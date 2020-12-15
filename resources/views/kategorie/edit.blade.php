@@ -2,7 +2,7 @@
 @section('main')
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">Update a kategoria</h1>
+        <h1 class="display-3">Edytuj kategorie</h1>
 
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -19,12 +19,12 @@
             @csrf
             <div class="form-group">
 
-                <label for="nazwa_kategoria">nazwa Kategori:</label>
+                <label for="nazwa_kategoria">Nazwa kategori:</label>
                 <input type="text" class="form-control" name="nazwa_kategoria" value={{ $kategoria->nazwa_kategoria}} />
             </div>
 
               
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary">Zapisz</button>
         </form>
     </div>
 </div>

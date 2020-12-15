@@ -34,7 +34,7 @@
     <option>Select Item</option>
     @foreach ($produkty as $key => $value)
         <option value="{{ $value->id }}" > 
-            {{ $value->nazwa_produktu }} 
+            {{ $value->nazwa_produktu}}      ({{$value->cena_netto }}$)
         </option>
     @endforeach    
 </select>

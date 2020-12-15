@@ -22,21 +22,29 @@
           </div>
 
           <div class="form-group">
-              <label for="last_name">cena_netto:</label>
+              <label for="last_name">Cena netto:</label>
               <input type="text" class="form-control" name="cena_netto"/>
           </div>
 
           <div class="form-group">
-              <label for="email">podatek:</label>
+              <label for="email">Podatek:</label>
               <input type="text" class="form-control" name="podatek"/>
           </div>
           <div class="form-group">
-              <label for="city">opis:</label>
+              <label for="city">Opis:</label>
               <input type="text" class="form-control" name="opis"/>
           </div>
           <div class="form-group">
-              <label for="country">czy_usluga:</label>
-              <input type="text" class="form-control" name="czy_usluga"/>
+              <label for="country">Czy usluga:</label>             
+              <select class="form-control" name="czy_usluga">
+              <option>Select Item</option>
+              <option value="1" > 
+             Tak  
+        </option>
+        <option value="0" > 
+             Nie 
+        </option>
+        </select>
           </div>  
           <div class="form-group">
           <label for="country">Producent:</label>
@@ -62,7 +70,7 @@
 </select>
           </div> 
                                        
-          <button type="submit" class="btn btn-primary">Add produkt</button>
+          <button type="submit" class="btn btn-primary">Dodaj produkt</button>
       </form>
   </div>
 </div>

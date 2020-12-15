@@ -13,7 +13,7 @@
 
 <div class="row">
 <div class="col-sm-12">
-    <h1 class="display-3">kategorie</h1>    
+    <h1 class="display-3">Kategorie</h1>    
   <table class="table table-striped">
     <thead>
         <tr>

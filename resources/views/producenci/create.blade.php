@@ -22,7 +22,7 @@
           </div>
 
           
-          <button type="submit" class="btn btn-primary-outline">Dodaj producenta</button>
+          <button type="submit" class="btn btn-primary">Dodaj producenta</button>
       </form>
   </div>
 </div>

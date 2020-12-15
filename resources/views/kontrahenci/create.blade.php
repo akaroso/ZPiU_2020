@@ -26,7 +26,7 @@
               <input type="text" class="form-control" name="nip"/>
           </div>
                                  
-          <button type="submit" class="btn btn-primary-outline">Dodaj kontrahenta</button>
+          <button type="submit" class="btn btn-primary">Dodaj kontrahenta</button>
       </form>
   </div>
 </div>
