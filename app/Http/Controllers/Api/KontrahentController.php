@@ -11,7 +11,7 @@ class KontrahentController extends Controller
     {
         return Kontrahent::all();
     }
- 
+
     public function show($id)
     {
         return Kontrahent::find($id);
@@ -23,23 +23,20 @@ class KontrahentController extends Controller
 
         $Kontrahent = Kontrahent::where('nip',$nip)->first();
         $Kontrahent = $Kontrahent->load(['produkt_kontrahent']);
-        
+
         $ProductsWithOtherPrice = [];
-        
+
         foreach($Kontrahent['produkt_kontrahent'] as $product)
         {
             array_push($ProductsWithOtherPrice,$product['id']);
         }
         $products = Produkt::whereNotIn('id',$ProductsWithOtherPrice)->get();
 
-       response()->json(['products' => ['normal' => $products,'discounted'=> $Kontrahent['produkt_kontrahent']]], 200);
+      // response()->json(['products' => ['normal' => $products,'discounted'=> $Kontrahent['produkt_kontrahent']]], 200);
           $result = array_merge(['products' => [ $products, $Kontrahent['produkt_kontrahent']]]);
-       // return $result;
-       $pomocnicza = $Kontrahent['produkt_kontrahent']->get(['cena']);
-      
-       $cenafinalna = $pomocnicza;
-       return $cenafinalna;
-        
+        return $result;
+
+
 
     }
 

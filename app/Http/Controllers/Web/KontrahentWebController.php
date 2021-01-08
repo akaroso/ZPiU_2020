@@ -62,7 +62,7 @@ class KontrahentWebController extends Controller
     public function edit($id)
     {
         $kontrahent = Kontrahent::find($id);
-        return view('kontrahenci.edit', compact('kontrahent')); 
+        return view('kontrahenci.edit', compact('kontrahent'));
     }
 
     /**
@@ -79,8 +79,8 @@ class KontrahentWebController extends Controller
             'nazwa_kontrahenta'=>'required',
             'nip'=>'required'
         ]);
-       
-       $kontrahent = Kontrahent::find($id);   
+
+       $kontrahent = Kontrahent::find($id);
        $kontrahent->update($request->all());
 
         return redirect('/kontrahenci')->with('success', 'Kontrahent zaktualizowany!');
@@ -94,7 +94,7 @@ class KontrahentWebController extends Controller
     }
 
     public function saveforcustromer(Request $request)
-    
+
     {
         $id = $request->get('id');
         $custromer = Kontrahent::firstWhere('id',$id);
@@ -105,7 +105,7 @@ class KontrahentWebController extends Controller
              $custromer->produkt_kontrahent()->attach($produkt_id,['cena'=>$cena]);
              $custromer -> save();
              return redirect('/kontrahenci')->with('success', 'Cena została zaktualizowana!');
-        
+
 
     }
 
@@ -121,5 +121,14 @@ class KontrahentWebController extends Controller
         $kontrahent->delete();
 
         return redirect('/kontrahenci')->with('success', 'Kontrahent usunięty!');
+    }
+
+
+    public function cennik($id)
+    {
+        $kontrahenci = Kontrahent::find($id);
+
+
+        return view('kontrahenci.cennik', compact('kontrahenci'));
     }
 }
