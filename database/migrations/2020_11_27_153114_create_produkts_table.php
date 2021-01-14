@@ -17,8 +17,8 @@ class CreateProduktsTable extends Migration
             $table->id();
             $table->string('nazwa_produktu');
             $table->float('cena_netto');
-            $table->float('podatek');
-            $table->string('opis');
+            $table->float('stawka_VAT');
+            $table->string('jednostka_miary');
             $table->boolean('czy_usluga');
         //    $table->timestamps();
         });

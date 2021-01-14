@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 Use App\Models\Kontrahent;
 Use App\Models\Produkt;
+use App\Http\Controllers\Controller;
+
 class KontrahentController extends Controller
 {
     public function index()

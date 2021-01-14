@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Kontrahent;
 use Illuminate\Http\Request;
 Use App\Models\Produkt;
+use App\Http\Controllers\Controller;
 
 class ProduktController extends Controller
 {
@@ -12,7 +13,7 @@ class ProduktController extends Controller
     {
         return Produkt::all();
     }
- 
+
     public function show($id)
     {
         return Produkt::find($id);
@@ -48,7 +49,7 @@ class ProduktController extends Controller
              $custromer->produkt_kontrahent()->attach($produkt_id,['cena'=>$cena]);
              $custromer -> save();
              return response()->json(['updated' => $custromer->load(['produkt_kontrahent'])], 200);
-        
+
 
     }
 }

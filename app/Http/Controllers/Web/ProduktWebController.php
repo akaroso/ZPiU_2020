@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 Use App\Models\Produkt;
 Use App\Models\Kategoria;
 Use App\Models\Producent;
+use App\Http\Controllers\Controller;
 
 class ProduktWebController extends Controller
 {
@@ -19,7 +20,7 @@ class ProduktWebController extends Controller
 
 
         $produkty = Produkt::with('kategorias','producents')->paginate(15);
-       
+
 
         return view('produkty.index', compact('produkty'));
     }
@@ -44,14 +45,14 @@ class ProduktWebController extends Controller
      */
     public function store(Request $request)
     {
-        $produkt =  Produkt::create($request->all()); 
+        $produkt =  Produkt::create($request->all());
      //   $product = new Produkt();
        // $product =  $product->fill($request->all());
        $kategoria= Kategoria::findOrfail($request->get('kategoria'));
        $producent= Producent::findOrfail($request->get('producent'));
        $produkt->kategorias()->save($kategoria);
        $produkt->producents()->save($producent);
-       
+
         return redirect('/produkty')->with('success', 'Produkt Zapisany!');
     }
 
@@ -75,7 +76,7 @@ class ProduktWebController extends Controller
     public function edit($id)
     {
         $produkt = Produkt::find($id);
-        return view('produkty.edit', compact('produkt')); 
+        return view('produkty.edit', compact('produkt'));
     }
 
     /**
@@ -95,14 +96,14 @@ class ProduktWebController extends Controller
             'opis'=>'required',
             'czy_usluga'=>'required'
         ]);
-       
-       $produkt = Produkt::find($id);   
+
+       $produkt = Produkt::find($id);
        $produkt->update($request->all());
 
         return redirect('/produkty')->with('success', 'Produkt updated!');
     }
 
-    
+
 
 
     /**

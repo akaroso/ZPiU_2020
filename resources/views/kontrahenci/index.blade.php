@@ -3,17 +3,17 @@
 
   @if(session()->get('success'))
     <div class="alert alert-success">
-      {{ session()->get('success') }}  
+      {{ session()->get('success') }}
     </div>
   @endif
 </div>
 @section('main')
 
-				 
+
 
 <div class="row">
 <div class="col-sm-12">
-    <h1 class="display-3">Kontrahenci</h1>    
+    <h1 class="display-3">Kontrahenci</h1>
   <table class="table table-striped">
     <thead>
         <tr>
@@ -30,6 +30,9 @@
             <td>{{$kontrahent->nip}}</td>
             <td>
                 <a href="{{ route('kontrahenci.edit',$kontrahent->id)}}" class="btn btn-primary">Edytuj</a>
+            </td>
+            <td>
+                <a href="{{ route('cennik.show',$kontrahent->nip)}}" class="btn btn-warning">Cennik</a>
             </td>
             <td>
                 <form action="{{ route('kontrahenci.destroy', $kontrahent->id)}}" method="post">

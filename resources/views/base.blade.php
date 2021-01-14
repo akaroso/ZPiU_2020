@@ -41,7 +41,7 @@
     <a class="dropdown-item" href="{{ route('kontrahenci.create')}}">Importuj Kontrahentów</a>
     <a class="dropdown-item" href="{{ route('kontrahenci.cena')}}">Ustaw cene dla Kontrahenta</a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
+    <a class="dropdown-item" href="{{ route('cennik.index')}}">Cennik</a>
   </div>
 </div>
 

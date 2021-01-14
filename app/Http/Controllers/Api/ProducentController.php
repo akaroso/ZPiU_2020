@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 Use App\Models\Producent;
+use App\Http\Controllers\Controller;
 
 class ProducentController extends Controller
 {
@@ -11,7 +12,7 @@ class ProducentController extends Controller
     {
         return Producent::all();
     }
- 
+
     public function show($id)
     {
         return Producent::find($id);

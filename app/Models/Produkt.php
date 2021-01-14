@@ -25,7 +25,7 @@ class Produkt extends Model
         return $this->belongsToMany('App\Models\Kontrahent');
     }
 
-    protected $fillable = ['nazwa_produktu', 'cena_netto', 'podatek', 'opis', 'czy_usluga'];
+    protected $fillable = ['nazwa_produktu', 'cena_netto', 'stawka_VAT', 'jednostka_miary', 'czy_usluga'];
 
 
 

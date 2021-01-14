@@ -16,7 +16,7 @@
     @endif
       <form method="post" action="{{ route('produkty.store') }}">
           @csrf
-          <div class="form-group">    
+          <div class="form-group">
               <label for="first_name">Nazwa produktu:</label>
               <input type="text" class="form-control" name="nazwa_produktu"/>
           </div>
@@ -27,49 +27,49 @@
           </div>
 
           <div class="form-group">
-              <label for="email">Podatek:</label>
-              <input type="text" class="form-control" name="podatek"/>
+              <label for="email">Stawka Vat:</label>
+              <input type="text" class="form-control" name="stawka_VAT"/>
           </div>
           <div class="form-group">
-              <label for="city">Opis:</label>
-              <input type="text" class="form-control" name="opis"/>
+              <label for="city">Jednostka Miary</label>
+              <input type="text" class="form-control" name="jednostka_miary"/>
           </div>
           <div class="form-group">
-              <label for="country">Czy usluga:</label>             
+              <label for="country">Czy usluga:</label>
               <select class="form-control" name="czy_usluga">
               <option>Select Item</option>
-              <option value="1" > 
-             Tak  
+              <option value="1" >
+             Tak
         </option>
-        <option value="0" > 
-             Nie 
+        <option value="0" >
+             Nie
         </option>
         </select>
-          </div>  
+          </div>
           <div class="form-group">
           <label for="country">Producent:</label>
           <select class="form-control" name="producent">
     <option>Select Item</option>
     @foreach ($producenci as $key => $value)
-        <option value="{{ $value->id }}" > 
-            {{ $value->nazwa_producenta }} 
+        <option value="{{ $value->id }}" >
+            {{ $value->nazwa_producenta }}
         </option>
-    @endforeach    
+    @endforeach
 </select>
-          </div> 
-          
+          </div>
+
           <div class="form-group">
           <label for="country">Kategoria:</label>
           <select class="form-control" name="kategoria">
     <option>Select Item</option>
     @foreach ($kategorie as $key => $value)
-        <option value="{{ $value->id }}" > 
-            {{ $value->nazwa_kategoria }} 
+        <option value="{{ $value->id }}" >
+            {{ $value->nazwa_kategoria }}
         </option>
-    @endforeach    
+    @endforeach
 </select>
-          </div> 
-                                       
+          </div>
+
           <button type="submit" class="btn btn-primary">Dodaj produkt</button>
       </form>
   </div>

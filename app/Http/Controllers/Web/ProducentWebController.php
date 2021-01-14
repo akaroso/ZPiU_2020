@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 Use App\Models\Producent;
+use App\Http\Controllers\Controller;
 
 class ProducentWebController extends Controller
 {
@@ -61,8 +62,8 @@ class ProducentWebController extends Controller
     public function edit($id)
     {
         $producent = Producent::find($id);
-       
-        return view('producenci.edit', compact('producent')); 
+
+        return view('producenci.edit', compact('producent'));
     }
 
     /**
@@ -77,10 +78,10 @@ class ProducentWebController extends Controller
         $request->validate([
             'nazwa_producenta'=>'required',
         ]);
-        
-    $producent = Producent::find($id);   
+
+    $producent = Producent::find($id);
     $producent->update($request->all());
- 
+
     return redirect('/producenci')->with('success', 'Producent updated!');
     }
 

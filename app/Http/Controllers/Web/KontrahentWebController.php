@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 Use App\Models\Kontrahent;
 Use App\Models\Produkt;
+use App\Http\Controllers\Controller;
 
 class KontrahentWebController extends Controller
 {

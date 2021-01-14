@@ -23,18 +23,18 @@
           <td>Stawka VAT</td>
           <td>Kategoria</td>
           <td>Producent</td>
-          <td>Jednostka Miary</td>
+          <td>Jednostka miary</td>
           <td>Usługa</td>
           <td colspan = 2>Akcje</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($produkty as $produkt)
+        @foreach($result['products'][1] as $key => $produkt)
         
         <tr>
             <td>{{$produkt->id}}</td>
             <td>{{$produkt->nazwa_produktu}}</td>
-            <td>{{$produkt->cena_netto}}</td>
+            <td>{{$produkt->pivot->cena}}</td>
             <td>{{$produkt->stawka_VAT}}</td>
 
             @foreach($produkt->kategorias as $kategoria)
@@ -70,7 +70,7 @@
     </tbody>
     
   </table>
-  {{$produkty->links("pagination::bootstrap-4")}}
+ 
 <div>
 </div>
 @endsection

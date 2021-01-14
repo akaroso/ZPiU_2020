@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 Use App\Models\Kategoria;
+use App\Http\Controllers\Controller;
 
 class KategoriaWebController extends Controller
 {
@@ -65,7 +66,7 @@ class KategoriaWebController extends Controller
 
     {
         $kategoria = Kategoria::find($id);
-        return view('kategorie.edit', compact('kategoria')); 
+        return view('kategorie.edit', compact('kategoria'));
         //
     }
 
@@ -81,10 +82,10 @@ class KategoriaWebController extends Controller
         //
         $request->validate([
             'nazwa_kategoria'=>'required',
-            
+
         ]);
-       
-       $kategoria = Kategoria::find($id);   
+
+       $kategoria = Kategoria::find($id);
        $kategoria->update($request->all());
 
         return redirect('/kategorie')->with('success', 'Kategoria zaktualizowany!');
