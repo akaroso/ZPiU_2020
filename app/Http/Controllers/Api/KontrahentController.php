@@ -28,14 +28,27 @@ class KontrahentController extends Controller
 
         $ProductsWithOtherPrice = [];
 
+        $przeceniony =  [];
+
         foreach($Kontrahent['produkt_kontrahent'] as $product)
         {
-            array_push($ProductsWithOtherPrice,$product['id']);
+            
+
+            $przeceniony[] =  [
+            'id'=>$product->id,
+            'nazwa_produktu'=>$product->nazwa_produktu,
+            'cena_netto'=>$product->pivot->cena,
+            'stawka_VAT'=>$product->stawka_VAT,
+            'jednostka_miary'=>$product->jednostka_miary,             
+            'czy_usluga'=>$product->czy_usluga 
+                            ];
+         array_push($ProductsWithOtherPrice,$product['id']);                      
+
         }
         $products = Produkt::whereNotIn('id',$ProductsWithOtherPrice)->get();
 
       // response()->json(['products' => ['normal' => $products,'discounted'=> $Kontrahent['produkt_kontrahent']]], 200);
-          $result = array_merge(['products' => [ $products, $Kontrahent['produkt_kontrahent']]]);
+          $result = array_merge(['products' => [ $products, $przeceniony]]);
         return $result;
 
 

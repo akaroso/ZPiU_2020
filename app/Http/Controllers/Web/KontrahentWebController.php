@@ -39,7 +39,16 @@ class KontrahentWebController extends Controller
      */
     public function store(Request $request)
     {
+        //integracja    
+
+        //pobieramy rekord
+        $nip = $request->get($request->get('nip'));
+
+        
+
         $kontrahent =  Kontrahent::create($request->all());
+
+        //koniec integracji
         return redirect('/kontrahenci')->with('success', 'Kontrahent zapisany!');
     }
 

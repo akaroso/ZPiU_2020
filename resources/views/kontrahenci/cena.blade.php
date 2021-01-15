@@ -15,6 +15,7 @@
       </div><br />
     @endif
       <form method="post" action="{{route('kontrahenci.saveforcustromer')}}">
+      @method('PATCH') 
           @csrf
           <div class="form-group">
           <label for="country">Kontrahent:</label>
