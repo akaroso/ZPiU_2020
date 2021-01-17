@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 Use App\Models\Kontrahent;
 Use App\Models\Produkt;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 
 class KontrahentWebController extends Controller
 {
@@ -42,11 +43,22 @@ class KontrahentWebController extends Controller
         //integracja    
 
         //pobieramy rekord
-        $nip = $request->get($request->get('nip'));
-
+        $nip = $request->get('nip');
+        $port= Env('INTEGRACJA_CONTRACTOR_PORT');
+        $url = 'http://127.0.0.1:';
+        $url2 ='/api/contractor/';
+        $fullurl = $url.$port.$url2.$nip;
+        $response = Http::get($fullurl)->body();
+        $name = (json_decode($response)->name);   
         
+        Kontrahent::create([
+            'nip' =>$nip,
+            'nazwa_kontrahenta' => $name
+        ]
+        );
 
-        $kontrahent =  Kontrahent::create($request->all());
+
+       // $kontrahent =  Kontrahent::create($request->all());
 
         //koniec integracji
         return redirect('/kontrahenci')->with('success', 'Kontrahent zapisany!');

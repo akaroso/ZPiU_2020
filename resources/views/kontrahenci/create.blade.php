@@ -15,12 +15,7 @@
       </div><br />
     @endif
       <form method="post" action="{{ route('kontrahenci.store') }}">
-          @csrf
-          <div class="form-group">    
-              <label for="nazwa_kontrahenta">nazwa_kontrahenta:</label>
-              <input type="text" class="form-control" name="nazwa_kontrahenta"/>
-          </div>
-
+          @csrf         
           <div class="form-group">
               <label for="nip">nip:</label>
               <input type="text" class="form-control" name="nip"/>
