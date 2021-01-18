@@ -24,9 +24,6 @@
   <div class="dropdown-menu">
     <a class="dropdown-item" href="{{ route('produkty.index')}}">Wyświetl produkty</a>
     <a class="dropdown-item" href="{{ route('produkty.create')}}">Dodaj produkt</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>
 
@@ -52,9 +49,6 @@
   <div class="dropdown-menu">
     <a class="dropdown-item" href="{{ route('kategorie.index')}}">Wyświetl kategorie</a>
     <a class="dropdown-item" href="{{ route('kategorie.create')}}">Dodaj kategorie</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>
 
@@ -65,10 +59,6 @@
   <div class="dropdown-menu">
     <a class="dropdown-item" href="{{ route('producenci.index')}}">Wyświetl producentów</a>
     <a class="dropdown-item" href="{{ route('producenci.create')}}">Dodaj producenta</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
-  </div>
 </div>
 
 

@@ -29,12 +29,12 @@
             </div>
 
             <div class="form-group">
-                <label for="podatek">Podatek:</label>
-                <input type="text" class="form-control" name="podatek" value={{ $produkt->podatek}} />
+                <label for="stawka_vat">Stawka VAT:</label>
+                <input type="text" class="form-control" name="stawka_vat" value={{ $produkt->stawka_VAT}} />
             </div>
             <div class="form-group">
-                <label for="opis">Opis:</label>
-                <input type="text" class="form-control" name="opis" value={{ $produkt->opis}} />
+                <label for="jednostka_miary">Jednostka miary:</label>
+                <input type="text" class="form-control" name="jednostka_miary" value={{ $produkt->jednostka_miary}} />
             </div>
             <div class="form-group">
                 <label for="czy_usluga">Czy usluga:</label>

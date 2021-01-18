@@ -13,7 +13,7 @@
 
 <div class="row">
 <div class="col-sm-12">
-    <h1 class="display-3">Kontrahenci</h1>
+    <h1 class="display-3">Cennik</h1>
   
 
 
@@ -24,7 +24,7 @@
             <td>{{$kontrahent->id}}</td>
             <td>{{$kontrahent->nazwa_kontrahenta}}</td>
             <td>{{$kontrahent->nip}}</td>
-            <a href="{{ route('cennik.show',$kontrahent->nip)}}" class="btn btn-primary">Edytuj</a>
+            <a href="{{ route('cennik.show',$kontrahent->nip)}}" class="btn btn-primary">Wyswietl cennik</a>
 
             @endforeach       
             </tbody>
